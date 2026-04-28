@@ -1,0 +1,137 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ef5350, #b71c1c);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 15px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    text-align: center;
+}
+
+.busca {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+.busca input{
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
+    max-width: 220px;
+    font-size: 14px;
+}
+
+
+.busca button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #fff;
+    color: #b71c1c;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.busca button:hover{
+    background: #ffe082;
+    transform: scale(1.05);
+}
+
+
+#dados{
+    background: #fff;
+    color: #333;
+    width: 100%;
+    max-width: 320px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    animation: aparecer 0.5s ease;
+    font-weight: 700;
+}
+
+
+@keyframes aparecer{
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#dados p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+#dados p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+#dados p:nth-child(4) {
+    display: inline-block;
+    background: #ffd54f;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#dados img{
+    width: 120px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+#dados img:hover {
+    transform: scale(1.1);
+}
+
+@media (min-width: 768px) {
+    #dados {
+        max-width: 400px;
+    }
+
+    .busca input {
+        max-width: 260px;
+    }
+}
+
+@media (min-width: 1024px) {
+    #dados {
+        max-width: 450px;
+    }
+}
