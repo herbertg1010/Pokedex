@@ -39,14 +39,25 @@ async function buscarpokemon(nomePokemon){
     const ataque = pokemon.stats.find(s => s.stat.name === 'attack').base_stat;
     const defesa = pokemon.stats.find(s => s.stat.name === 'defense').base_stat;
     const velocidade = pokemon.stats.find(s => s.stat.name === 'speed').base_stat;
-
-    return {nome, peso, altura, tipo, imagem, forca, hp, ataque, defesa, velocidade};
+    const som = pokemon.cries.latest;
+    return {nome, peso, altura, tipo, imagem, forca, hp, ataque, defesa, velocidade, som};
 
   } catch(e){
     console.error(`Erro: ${e.message}`);
     return null;
   }
 }
+
+function tocarSom(url) {
+  if (!url) return;
+
+  const audio = new Audio(url);
+  audio.volume = 0.5; 
+  audio.play().catch(() => {
+    console.log("Autoplay bloqueado");
+  });
+}
+
 
 async function iniciar(){
   const input = document.getElementById('nomePokemon');
@@ -78,4 +89,5 @@ async function iniciar(){
     <p>⚡ Velocidade: ${dados.velocidade}</p>
     <img src="${dados.imagem}" alt="${dados.nome}"/>
   `;
+  tocarSom(dados.som);
 }
